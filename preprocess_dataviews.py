@@ -1,3 +1,7 @@
+# This file is an example of processing you might want to do to
+# your vault to make it a bit more presentable / user friendly
+# This one in particular cleans up dataviews to look better
+
 import re
 import glob
 
