@@ -48,7 +48,7 @@ The `deploy.yml` workflow handles:
 
 ## Setup Instructions
 
-See my blog post [here](https://www.danielnazarian.com/blog/posts/) to get started.
+See my blog post [here]([https://www.danielnazarian.com/blog/posts/](https://danielnazarian.com/blog/posts/0d7a916e-cd8f-4931-82a5-f206ab1a938e/)) to get started.
 
 
 ## Customization
