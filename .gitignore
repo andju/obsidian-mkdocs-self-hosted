@@ -1,0 +1,18 @@
+# Exclude plugin configuration. Might be useful to prevent some plugin from exposing sensitive data
+.obsidian/plugins
+
+# Exclude workspace cache
+.obsidian/workspace.json
+
+# Exclude workspace cache specific to mobile devices
+.obsidian/workspace-mobile.json
+
+# Add below lines to exclude OS settings and caches
+.trash/
+.DS_Store
+
+# Python environment
+.venv
+
+# Local .site_content
+.site_content

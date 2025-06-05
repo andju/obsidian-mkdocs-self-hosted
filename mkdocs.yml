@@ -1,7 +1,6 @@
-# Example of a more complicated config file for `MKDocs`
-# This one takes more action to handle formatting and theming
+# Example of a config file for `MKDocs`
 
-site_name: Dan's Notes
+site_name: andju-know
 theme:
   name: material
   features:
@@ -42,8 +41,8 @@ nav:
 markdown_extensions:
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: dan1229
-      repo: obsidian-dans-notes
+      user: andju
+      repo: andju-know
       normalize_issue_symbols: true
   - pymdownx.superfences
   - pymdownx.tasklist:
@@ -69,9 +68,13 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - obsidian_callouts
 
 plugins:
   - search
+  - obsidian-bridge
+  - open-in-new-tab:
+      add_icon: true
   - awesome-pages
   - tags
   - mkdocs-simple-hooks:
