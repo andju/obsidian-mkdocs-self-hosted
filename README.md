@@ -64,6 +64,8 @@ Recommended plugins:
 
 [Supported language shortcodes (for code blocks)](https://pygments.org/docs/lexers/)
 
+[Sync with git on iOS for free using iSH](https://forum.obsidian.md/t/mobile-sync-with-git-on-ios-for-free-using-ish/20861)
+
 ## Enhancements
 
 Compared to original template, I added the following enhancements:
