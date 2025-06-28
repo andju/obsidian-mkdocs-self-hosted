@@ -8,6 +8,7 @@ standard.
 """
 
 import re
+import unicodedata
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -34,10 +35,21 @@ def process_link(match: re.Match) -> str:
 
     # Capture the identifier part
     identifier = match.group(3)
-    # Modify the identifier
-    modified_identifier = re.sub(r'[%20]+', '-', identifier.lower())
+    # Convert to lower case
+    identifier_lower = identifier.lower()
+    # Remove the accents from letters
+    identifier_no_accents = ''.join(char for char
+                                    in unicodedata.normalize('NFD', identifier_lower)
+                                    if unicodedata.category(char) != 'Mn')
+    # Replace (consecutive) spaces by a dash.
+    identifier_no_spaces = re.sub(r'[%20]+', '-', identifier_no_accents)
+    # Remove non-word chars except hyphens and underscores
+    identifier_word_chars = re.sub(r'[^\w\-\_]+', '', identifier_no_spaces)
+    # Replace consectuive dashes by a single one
+    identifier_single_dashes = (re.sub(r'[\-]+', '-', identifier_word_chars)
+                                .strip('-'))
     # Rebuild the entire link with the modified identifier
-    return f'[{match.group(1)}]({match.group(2)}{modified_identifier})'
+    return f'[{match.group(1)}]({match.group(2)}{identifier_single_dashes})'
 
 
 for md_file in Path('.site_content').rglob('*.md'):
