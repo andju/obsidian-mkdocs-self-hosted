@@ -47,10 +47,10 @@ The `deploy.yml` workflow handles:
 ## Local preview
 
 - Create a virtual python environment in the repository folder: `python -m venv .venv`
-- Activate the repository: `venv\scripts\activate`
+- Activate the repository: `.venv\scripts\activate`
 - Install the dependencies: `pip install -r requirements.txt`
 - Run the preprocess scripts (e.g. `python .scripts\collect_published_files.py`)
-- Run MkDocs: `mkdocs serve`
+- Run MkDocs with the local config: `mkdocs serve -f mkdocs_local.yml`
 
 ## Recommended Obsidian settings
 
