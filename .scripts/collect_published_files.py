@@ -34,11 +34,21 @@ for path in Path('.').rglob('*.md'):
         content = path.read_text(encoding='utf-8')
     except Exception as e:  # pylint: disable=broad-exception-caught
         print(f'Error reading file {path}: {e}')
+        continue
 
     if published_pattern.search(content):
         files_to_copy.append(path)
 
-# Copy published markdown files
+# Find .pages files
+for path in Path('.').rglob('*.pages'):
+    if (any(folder in path.parts for folder in EXCLUSION)
+            or any(part.startswith('.') for part in path.parts[:-1])):
+        print(f'Skipping excluded file: {path}')
+        continue
+
+    files_to_copy.append(path)
+
+# Copy files
 for path in files_to_copy:
     destination = Path(output_dir, path)
     # Recreate folder structure in .site_content
